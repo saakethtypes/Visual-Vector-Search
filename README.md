@@ -1,4 +1,4 @@
-# Reverse-Image-Search-for-ECommerce-Platform
+# Reverse Image Search for E-Commerce Platforms
 
  Specifically, I focused on utilizing Pinecone's vector database and pretrained neural networks to generate vector embeddings for efficient image similarity comparisons. Key accomplishments include:
 
