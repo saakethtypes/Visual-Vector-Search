@@ -1,0 +1,14 @@
+numpy==1.23.4
+openai==0.27.2
+opencv-python-headless
+Pillow==9.5.0
+pinecone_client==2.2.1
+python-decouple==3.8
+requests==2.28.1
+shortuuid==1.0.11
+streamlit==1.13.0
+tensorflow==2.10.0
+torch==2.0.0
+torchvision==0.15.1
+tqdm==4.64.1
+ImageHash==4.3.1
