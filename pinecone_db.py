@@ -45,7 +45,7 @@ def create_index(index_name,dim):
     if index_name not in pinecone.list_indexes():
         pinecone.create_index(name=index_name, dimension=dim)
     index = pinecone.Index(index_name)
-    vectors = process_images(img_dir="images/img_data",model=model)
+    vectors = process_images(img_dir="img",model=model)
     batches = []
     for i in range(0, len(vectors), 50):
         batch = vectors[i:i+50]
