@@ -6,10 +6,7 @@ def main():
 
     st.title("Image Search")
 
-    tab1 = st.tabs(["Pinecone search"])
-
-    with tab1:
-        pinecone_search()
+    pinecone_search()
 
 if __name__ == "__main__":
     main()

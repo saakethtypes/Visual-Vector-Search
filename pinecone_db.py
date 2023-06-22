@@ -1,11 +1,7 @@
 import pinecone
 import os
-import requests
-import shortuuid
-import tqdm
 import numpy as np
 from PIL import Image
-import config
 import torch
 import torchvision
 from torchvision.transforms import (
@@ -26,7 +22,7 @@ def process_images(img_dir, model):
     ])
     ctr = 0
     for file_name in os.listdir(img_dir):
-        if file_name.lower().endswith(('.jpg', '.jpeg')) and ctr<990:
+        if file_name.lower().endswith(('.jpg', '.jpeg')) and ctr<9900:
             ctr+=1
             print(ctr)
             img_path = os.path.join(img_dir, file_name)
@@ -40,12 +36,12 @@ def process_images(img_dir, model):
 
 def create_index(index_name,dim):
     pinecone_api_key = config.api_keys["PINECONE_API_KEY"]
-    pinecone.init(api_key=pinecone_api_key, environment="eu-west1-gcp")
+    pinecone.init(api_key=pinecone_api_key, environment="northamerica-northeast1-gcp")
     model = torchvision.models.squeezenet1_1(pretrained=True).eval()
     if index_name not in pinecone.list_indexes():
         pinecone.create_index(name=index_name, dimension=dim)
     index = pinecone.Index(index_name)
-    vectors = process_images(img_dir="images/img_data",model=model)
+    vectors = process_images(img_dir="img",model=model)
     batches = []
     for i in range(0, len(vectors), 50):
         batch = vectors[i:i+50]

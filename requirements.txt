@@ -12,3 +12,4 @@ torch==2.0.0
 torchvision==0.15.1
 tqdm==4.64.1
 ImageHash==4.3.1
+altair<5

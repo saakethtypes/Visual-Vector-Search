@@ -29,10 +29,10 @@ def pinecone_search():
     if uploaded_file is not None:
         start_time = datetime.now()
         img = Image.open(uploaded_file)
-        uploaded_img_path = "static/uploaded/" + datetime.now().isoformat().replace(":", "_") + uploaded_file.name
+        uploaded_img_path = "uploaded/" + datetime.now().isoformat().replace(":", "_") + uploaded_file.name
         img.save(uploaded_img_path)
-        pc_api_key = st.secrets["PINECONE_API_KEY"]
-        pinecone.init(api_key=pc_api_key, environment="eu-west1-gcp")
+        pc_api_key = config.api_keys["PINECONE_API_KEY"]
+        pinecone.init(api_key=pc_api_key, environment="northamerica-northeast1-gcp")
         model = torchvision.models.squeezenet1_1(pretrained=True).eval()
         index = pinecone.Index("pinecone-image-search")
 
@@ -42,7 +42,7 @@ def pinecone_search():
         st.write('Search time: {}'.format(end_time - start_time))
         
         for res in responses["matches"]:
-            images = Image.open(f'static/img_data/{res["id"]}')
+            images = Image.open(f'img/{res["id"]}')
             score = res["score"]
             print(score)
             print("here", res["id"])
