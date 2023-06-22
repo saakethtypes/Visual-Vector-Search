@@ -6,3 +6,4 @@ Built an efficient reverse image search application utilizing Pinecone's vector 
 * Conducting queries on Pinecone's Vector Database to identify images with the highest similarity scores to a given query image
 
 Live Demo - https://visualsearch.streamlit.app/
+![Capture](https://github.com/saakethtypes/Visual-Vector-Search/assets/47172497/356613f9-18db-4ebd-857b-b4c9508cf8e6)
