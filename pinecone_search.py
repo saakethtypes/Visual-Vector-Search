@@ -29,7 +29,7 @@ def pinecone_search():
     if uploaded_file is not None:
         start_time = datetime.now()
         img = Image.open(uploaded_file)
-        uploaded_img_path = "static/uploaded/" + datetime.now().isoformat().replace(":", "_") + uploaded_file.name
+        uploaded_img_path = "static/" + datetime.now().isoformat().replace(":", "_") + uploaded_file.name
         img.save(uploaded_img_path)
         pc_api_key = st.secrets["PINECONE_API_KEY"]
         pinecone.init(api_key=pc_api_key, environment="eu-west1-gcp")
