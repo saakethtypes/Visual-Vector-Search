@@ -37,7 +37,7 @@ def pinecone_search():
         index = pinecone.Index("pinecone-image-search")
 
         query_vectors = model(preprocess(img).unsqueeze(0)).tolist()
-        responses = index.query(vector=query_vectors, top_k=3)
+        responses = index.query(vector=query_vectors, top_k=5)
         end_time = datetime.now()
         st.write('Search time: {}'.format(end_time - start_time))
         
